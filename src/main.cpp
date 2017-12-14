@@ -24,5 +24,12 @@ int main(int argc, const char * argv[])
 
 	PRINT_BIG((BigNumber::MAX_BIG_NUMBER() -1));
 	PRINT_BIG((BigNumber::MAX_BIG_NUMBER() - BigNumber::MAX_BIG_NUMBER()));
+	printf("---------------------\n");
+	BigNumber one(1000), two(2000), three(3000),four(4000);
+	one += two += three+=four;
+	PRINT_BIG(one);
+	PRINT_BIG(two);
+	PRINT_BIG(three);
+	PRINT_BIG(four);
 	return 0;
 }

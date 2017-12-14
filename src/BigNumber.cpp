@@ -161,6 +161,7 @@ BigNumber & BigNumber::operator-=(const BigNumber & other)
 			}
 		}
 	}
+	normalise();
 	return *this;
 }
 
