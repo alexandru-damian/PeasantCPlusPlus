@@ -20,11 +20,11 @@ public:
 	BigNumber();
 	BigNumber(int64_t value);
 	BigNumber operator+(const BigNumber & other) const;
-	void operator+=(const BigNumber & other);
+	BigNumber & operator+=(const BigNumber & other);
 	BigNumber operator-(const BigNumber & other) const;
-	void operator-=(const BigNumber & other);
+	BigNumber & operator-=(const BigNumber & other);
 	BigNumber operator*(const BigNumberValue & scalar) const;
-	void operator*=(const BigNumberValue & scalar);
+	BigNumber & operator*=(const BigNumberValue & scalar);
 
 	bool operator>(const BigNumber & other) const;
 	bool operator>=(const BigNumber & other) const;

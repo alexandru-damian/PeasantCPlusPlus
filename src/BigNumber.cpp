@@ -127,37 +127,49 @@ BigNumber::BigNumber(int64_t value)
 
 BigNumber BigNumber::operator+(const BigNumber & other) const
 {
-	BigNumber result(*this);
-	result += other;
-	return result;
+	return BigNumber(*this) += other;
 }
 
-void BigNumber::operator+=(const BigNumber & other)
+BigNumber & BigNumber::operator+=(const BigNumber & other)
 {
 	for (uint32_t index = 0; index < _segments.size(); ++index)
 	{
 		_segments[index] += other._segments[index];
 	}
 	normalise();
+	return *this;
 }
 
 BigNumber BigNumber::operator-(const BigNumber & other) const
 {
-	return BigNumber();
+	return BigNumber(*this)-=other;
 }
 
-void BigNumber::operator-=(const BigNumber & other)
+BigNumber & BigNumber::operator-=(const BigNumber & other)
 {
+	if (*this < other)
+		return BigNumber();
+	for (uint32_t index = 0; index < _segments.size(); ++index)
+	{
+		_segments[index] -= other._segments[index];
+		if (_segments[index] < 0)
+		{
+			_segments[index] += MAX_SEGMENT_VALUE;
+			if (index + 1 < topIndex())
+			{
+				--_segments[index + 1];
+			}
+		}
+	}
+	return *this;
 }
 
 BigNumber BigNumber::operator*(const BigNumberValue & scalar) const
 {
-	BigNumber result(*this);
-	result *= scalar;
-	return result;
+	return BigNumber(*this) *= scalar;
 }
 
-void BigNumber::operator*=(const BigNumberValue & scalar)
+BigNumber & BigNumber::operator*=(const BigNumberValue & scalar)
 {
 	for (uint32_t index = 0; index < _segments.size(); ++index)
 	{
@@ -165,12 +177,13 @@ void BigNumber::operator*=(const BigNumberValue & scalar)
 	}
 	normaliseDecimals();
 	normalise();
+	return *this;
 }
 
 
 bool BigNumber::operator>(const BigNumber & other) const
 {
-	uint32_t topIndex = topIndex;
+	uint32_t topIndex = this->topIndex();
 	if (topIndex > other.topIndex())
 		return true;
 
@@ -184,17 +197,17 @@ bool BigNumber::operator>(const BigNumber & other) const
 
 bool BigNumber::operator>=(const BigNumber & other) const
 {
-	return (*this>other)||(*this==other);
+	return !(*this<other);
 }
 
 bool BigNumber::operator<(const BigNumber & other) const
 {
-	return !(*this>=other);
+	return other>*this;
 }
 
 bool BigNumber::operator<=(const BigNumber & other) const
 {
-	return (*this<other) || (*this == other);
+	return !(*this>other);
 }
 
 bool BigNumber::operator==(const BigNumber & other) const

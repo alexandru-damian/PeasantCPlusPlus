@@ -8,6 +8,7 @@ int main(int argc, const char * argv[])
 	BigNumber copy(big);
 	copy += (big+big);
 
+
 	PRINT_BIG(big);
 	PRINT_BIG(copy);
 
@@ -20,5 +21,8 @@ int main(int argc, const char * argv[])
 	PRINT_BIG((copy * 5));
 	PRINT_BIG(BigNumber::MAX_BIG_NUMBER());
 	PRINT_BIG((BigNumber::MAX_BIG_NUMBER()*20));
+
+	PRINT_BIG((BigNumber::MAX_BIG_NUMBER() -1));
+	PRINT_BIG((BigNumber::MAX_BIG_NUMBER() - BigNumber::MAX_BIG_NUMBER()));
 	return 0;
 }
