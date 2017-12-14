@@ -1,0 +1,65 @@
+# PeasantCPlusPlus
+Like PeasantColony, but written in a language that isn't ass.
+
+
+Ideas:
+-peasants can be sent to:
+	-farm fields 
+	-forest 
+	-mines 
+	-animal farm 
+	-barracks 
+	-merchant 
+	-academy
+	-priesthood
+-farming fields
+	-generates a large amount of food every x units of time
+	-upgrades:
+		-generate more food/peasant
+		-generate food faster
+-animal farm
+	-generates a small amount of food at a steady pace
+	-upgrades: 
+		-generate more food/peasant
+-merchants
+	-select x amount of peasants to convert to merchants
+	-select y amount of resource
+	-send out peasants to sell the resource 
+	-trip duration is determined based on how much of resource is taken
+	-maximum resource amount is determined by amount of peasants
+	-merchants return only carrying one type of resource
+	-return resource is random
+	-upgrades:
+		-retrieve higher amounts of resource
+		-select resource type
+		-carry more resource/merchant
+-housing 
+	-generates peasants at the cost of food
+	-maximum amount of peasants(includes all types) is determined by housing upgrades
+	-upgrades: 
+		-house more peasants
+		-better quality food(peasants cost less)
+-barracks
+	-peasants can be converted to soldiers here 
+	-soldiers gather gold at a steady rate(from other kingdoms)
+	-upgrades:
+		-gather more gold/peasant
+		-convert faster
+-academy
+	-amount of peasant determines upgrades unlocked
+	-amount of peasants determines upgrade speed
+	-upgrades cost relevant resources
+	-upgrades:
+		-faster research/peasant
+-mines and forests:
+	-generate wood or minerals based on number of peasant
+	-upgrades:
+		-more resource/peasant
+-priesthood
+	-grants timed bonuses to other buildings
+	-bonuses cost relevant resources(including peasants in sacrificial rituals)
+	-number of peasants determines bonus duration
+	-upgrades:
+		-cost less resource
+		-more bonus duration/peasant
+		-better bonuses
