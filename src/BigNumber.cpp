@@ -113,12 +113,6 @@ BigNumber::BigNumber()
 	}
 }
 
-BigNumber::BigNumber(const BigNumber & other)
-	: _segments(other._segments)
-	, _isNegative(other._isNegative)
-{
-	//apparently vector assignment counts as deep copy
-}
 
 BigNumber::BigNumber(int64_t value)
 	: _segments(std::vector<BigNumberValue>(SEGMENT_COUNT))

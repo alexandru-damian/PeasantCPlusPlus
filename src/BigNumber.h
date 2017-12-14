@@ -18,7 +18,6 @@ public:
 	static BigNumber MAX_BIG_NUMBER();
 
 	BigNumber();
-	BigNumber(const BigNumber & other);
 	BigNumber(int64_t value);
 	BigNumber operator+(const BigNumber & other) const;
 	void operator+=(const BigNumber & other);
