@@ -105,18 +105,12 @@ BigNumber BigNumber::MAX_BIG_NUMBER()
 
 BigNumber::BigNumber()
 	: _segments( std::vector<BigNumberValue>(SEGMENT_COUNT))
-	, _isNegative(false)
 {
-	for (uint32_t index = 0; index < _segments.size(); ++index)
-	{
-		_segments[index] = 0;
-	}
 }
 
 
 BigNumber::BigNumber(int64_t value)
 	: _segments(std::vector<BigNumberValue>(SEGMENT_COUNT))
-	, _isNegative(value<0)
 {
 	for (uint32_t index = 0; index < _segments.size(); ++index)
 	{

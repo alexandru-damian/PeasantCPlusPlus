@@ -4,7 +4,7 @@
 #include <vector>
 
 
-//treated as ints but we will still use decimal values for multiplication with constants < 0
+//treated as ints but we will still use decimal values for multiplication with constants < 1.0
 typedef double BigNumberValue;
 
 class BigNumber
@@ -19,10 +19,13 @@ public:
 
 	BigNumber();
 	BigNumber(int64_t value);
+
 	BigNumber operator+(const BigNumber & other) const;
 	BigNumber & operator+=(const BigNumber & other);
+
 	BigNumber operator-(const BigNumber & other) const;
 	BigNumber & operator-=(const BigNumber & other);
+
 	BigNumber operator*(const BigNumberValue & scalar) const;
 	BigNumber & operator*=(const BigNumberValue & scalar);
 
@@ -32,10 +35,6 @@ public:
 	bool operator<=(const BigNumber & other) const;
 	bool operator==(const BigNumber & other) const;
 	bool operator!=(const BigNumber & other) const;
-
-	bool isNegative(){
-		return _isNegative;
-	}
 
 	BigNumberValue getValue(const uint32_t & index) const;
 
@@ -55,7 +54,6 @@ private:
 	const uint32_t topIndex() const;
 
 	std::vector<BigNumberValue> _segments;
-	bool _isNegative;
 
 	static const uint32_t INTERAL_BUFFER_SIZE;
 };
