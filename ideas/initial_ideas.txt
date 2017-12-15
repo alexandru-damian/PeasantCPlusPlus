@@ -63,3 +63,6 @@ Ideas:
 		-cost less resource
 		-more bonus duration/peasant
 		-better bonuses
+-prestiges
+	-slana will increase the production bonus
+	-one slana = 1% increase rate of resources
